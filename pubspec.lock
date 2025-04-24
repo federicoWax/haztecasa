@@ -298,10 +298,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "5a1e6fb2c0561958d7e4c33574674bda7b77caaca7a33b758876956f2902eea3"
+      sha256: f948e346c12f8d5480d2825e03de228d0eb8c3a737e4cdaa122267b89c022b5e
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.27"
+    version: "2.0.28"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -524,10 +524,10 @@ packages:
     dependency: "direct main"
     description:
       name: mapbox_maps_flutter
-      sha256: "243f584cf79ebdc7618d9f8c37bf9839c2ffde1dbd64fb5580f11cb4bbdfb98e"
+      sha256: aa89c7be64a63dd57dd8497c4f67a797abe6337426ab428b8a96027be35e6a68
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.2"
+    version: "2.7.0"
   matcher:
     dependency: transitive
     description:
@@ -905,18 +905,18 @@ packages:
     dependency: transitive
     description:
       name: web_socket
-      sha256: "3c12d96c0c9a4eec095246debcea7b86c0324f22df69893d538fcc6f1b8cce83"
+      sha256: bfe6f435f6ec49cb6c01da1e275ae4228719e59a6b067048c51e72d9d63bcc4b
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.6"
+    version: "1.0.0"
   web_socket_channel:
     dependency: transitive
     description:
       name: web_socket_channel
-      sha256: "0b8e2457400d8a859b7b2030786835a28a8e80836ef64402abef392ff4f1d0e5"
+      sha256: d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   yaml:
     dependency: transitive
     description:
