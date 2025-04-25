@@ -6,14 +6,15 @@ import 'package:haztecasa/providers/draggable_scrollable_provider.dart';
 import 'package:haztecasa/view_models/draggable_scrollable_view_model.dart';
 import 'package:haztecasa/widgets/draggable_scrollable_sheet/grabber.dart';
 
-class DraggableScrollableSheetWidget extends ConsumerWidget {
-  const DraggableScrollableSheetWidget({super.key});
+class DraggableScrollableSheetWidget<T> extends ConsumerWidget {
+  final Widget headerList;
+  final Widget Function(ScrollController scrollController) listBuilder;
+  const DraggableScrollableSheetWidget({super.key, required this.listBuilder, required this.headerList});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DraggableScrollableViewModel viewModel = ref.watch(draggableScrollableProvider.notifier);
     final DraggableScrollableModel model = ref.watch(draggableScrollableProvider);
-
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return DraggableScrollableSheet(
@@ -23,37 +24,14 @@ class DraggableScrollableSheetWidget extends ConsumerWidget {
       maxChildSize: model.maxChildSize,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
-          decoration: BoxDecoration(color: colorScheme.surface, borderRadius: const BorderRadius.vertical(top: Radius.circular(16))),
+          decoration: BoxDecoration(color: colorScheme.surface, borderRadius: BorderRadius.vertical(top: Radius.circular(16.r))),
           child: Column(
             children: <Widget>[
               Grabber(onVerticalDragUpdate: viewModel.onVerticalDragUpdate),
-              const SizedBox(height: 12), // Espacio entre el grabber y el texto
-              Center(
-                child: Container(
-                  height: 24,
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0), // Añade espacio a los lados
-                  decoration: BoxDecoration(
-                    color: colorScheme.primary, // Cambia el color aquí
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(1.0),
-                    child: Text(
-                      "Propiedades disponibles",
-                      style: TextStyle(color: colorScheme.onPrimary, fontSize: 14.sp, fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ),
-              ),
-              Flexible(
-                child: ListView.builder(
-                  controller: scrollController,
-                  itemCount: 25,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(title: Text('Item $index', style: TextStyle(color: colorScheme.onSurface)));
-                  },
-                ),
-              ),
+              const SizedBox(height: 4),
+              headerList,
+              const SizedBox(height: 12),
+              Flexible(child: listBuilder(scrollController)),
             ],
           ),
         );

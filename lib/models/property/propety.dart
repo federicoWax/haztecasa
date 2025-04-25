@@ -39,6 +39,9 @@ class Property {
   final DateTime updatedAt;
   final String profileId;
 
+  //local to widget props
+  bool? isFavorite;
+
   Property({
     required this.id,
     required this.type,
@@ -77,6 +80,9 @@ class Property {
     required this.createdAt,
     required this.updatedAt,
     required this.profileId,
+
+    //local to widget props
+    this.isFavorite,
   });
 
   factory Property.fromJson(Map<String, dynamic> json) {
@@ -166,12 +172,13 @@ class Property {
   }
 }
 
-final List<Property> listPropertyDummy = [
+List<Property> listPropertyDummy = [
   Property(
     id: "1",
     type: "Casa",
     category: "Casa",
-    image: "https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e",
+    image:
+        "https://media.istockphoto.com/id/2170236823/photo/new-suburban-houses.jpg?s=1024x1024&w=is&k=20&c=t-6H8Rb6EIVrMShNPf0aEyU_qQD2epMpk2jOln2Nsew=",
     status: 1,
     images: ["https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e", "https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e"],
     state: "Estado de México",
@@ -199,7 +206,8 @@ final List<Property> listPropertyDummy = [
     id: "2",
     type: "Departamento",
     category: "Departamento",
-    image: "https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e",
+    image:
+        "https://media.istockphoto.com/id/2175973654/photo/modern-backyard-with-small-house-and-patio-furniture-at-sunset.jpg?s=1024x1024&w=is&k=20&c=k2BPlmaHpQLUJm20T8tKr5sDdRiDe-AFa9-1s9wj4Xc=",
     status: 1,
     images: ["https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e", "https://images.unsplash.com/photo-1601758123927-4c3f8b2a5d0e"],
     state: "Ciudad de México",
@@ -226,7 +234,7 @@ final List<Property> listPropertyDummy = [
     id: "21",
     type: "Casa",
     category: "Residencial",
-    image: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
     status: 1,
     images: ["https://images.unsplash.com/photo-1572120360610-d971b9d7767c", "https://images.unsplash.com/photo-1568605114967-8130f3a36994"],
     state: "Nuevo León",
@@ -253,7 +261,7 @@ final List<Property> listPropertyDummy = [
     id: "22",
     type: "Departamento",
     category: "Lujo",
-    image: "https://images.unsplash.com/photo-1599423300746-b62533397364",
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
     status: 1,
     images: ["https://images.unsplash.com/photo-1599423300746-b62533397364", "https://images.unsplash.com/photo-1556912998-6b388285f5b4"],
     state: "Querétaro",
