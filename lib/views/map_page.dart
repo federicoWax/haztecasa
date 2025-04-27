@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haztecasa/models/property/propety.dart';
+import 'package:haztecasa/models/property/property.dart';
 import 'package:haztecasa/widgets/draggable_scrollable_sheet/draggable_scrollable_sheet.dart';
 import 'package:haztecasa/widgets/list_properties/list_properties.dart';
 import 'package:haztecasa/widgets/list_properties/list_properties_header.dart';

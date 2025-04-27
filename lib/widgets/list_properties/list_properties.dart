@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:haztecasa/models/property/propety.dart';
+import 'package:haztecasa/models/property/property.dart';
 import 'package:haztecasa/utils/colors/colors.dart';
 import 'package:haztecasa/utils/functions/functions.dart';
 
@@ -30,6 +30,7 @@ class ListProperties extends StatelessWidget {
         final double bathrooms = property.baths;
         final double construction = property.construction;
         final double dimension = property.dimension;
+        final DateTime createdAt = property.createdAt;
 
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -151,13 +152,10 @@ class ListProperties extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Hace 7 dias", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[500])),
+                          Text(getTimeAgo(createdAt), style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey[500])),
                           OutlinedButton.icon(
                             onPressed: () {},
-                            icon: FaIcon(
-                              FontAwesomeIcons.whatsapp,
-                              color: colorWhatsApp, // Verde WhatsApp
-                            ),
+                            icon: FaIcon(FontAwesomeIcons.whatsapp, color: colorWhatsApp),
                             label: Text("Contactar", style: TextStyle(color: colorWhatsApp, fontWeight: FontWeight.w600)),
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(color: colorWhatsApp, width: 1.5),
