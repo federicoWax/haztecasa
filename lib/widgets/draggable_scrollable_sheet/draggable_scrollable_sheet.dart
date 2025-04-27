@@ -28,9 +28,9 @@ class DraggableScrollableSheetWidget<T> extends ConsumerWidget {
           child: Column(
             children: <Widget>[
               Grabber(onVerticalDragUpdate: viewModel.onVerticalDragUpdate),
-              const SizedBox(height: 4),
-              headerList,
-              const SizedBox(height: 12),
+              SizedBox(height: 4.h),
+              GestureDetector(behavior: HitTestBehavior.translucent, onVerticalDragUpdate: viewModel.onVerticalDragUpdate, child: headerList),
+              SizedBox(height: 12.h),
               Flexible(child: listBuilder(scrollController)),
             ],
           ),

@@ -1,5 +1,14 @@
 import "package:mapbox_maps_flutter/mapbox_maps_flutter.dart";
 
+enum PropertyAge {
+  none(0),
+  preSale(1),
+  openNewHouse(2);
+
+  final int valor;
+  const PropertyAge(this.valor);
+}
+
 class Property {
   final String id;
   final String type;
@@ -13,8 +22,8 @@ class Property {
   final String city;
   final String neighborhood;
   final String description;
-  final int dimension;
-  final int construction;
+  final double dimension;
+  final double construction;
   final int price;
   final int bedrooms;
   final int floor;
@@ -24,9 +33,9 @@ class Property {
   final String? street;
   final int? postalCode;
   final int? privacy;
-  final int? propertyAge;
+  final PropertyAge? propertyAge;
   final int? negotiable;
-  final int? remate;
+  final bool? remate;
   final int? cars;
   final Position? position;
   final double baths;
@@ -99,8 +108,8 @@ class Property {
       city: json["city"] as String,
       neighborhood: json["neighborhood"] as String,
       description: json["description"] as String,
-      dimension: json["dimension"] as int,
-      construction: json["construction"] as int,
+      dimension: json["dimension"] as double,
+      construction: json["construction"] as double,
       price: json["price"] as int,
       bedrooms: json["bedrooms"] as int,
       floor: json["floor"] as int,
@@ -110,9 +119,9 @@ class Property {
       street: json["street"] as String?,
       postalCode: json["postalCode"] as int?,
       privacy: json["privacy"] as int?,
-      propertyAge: json["propertyAge"] as int?,
+      propertyAge: json["propertyAge"] as PropertyAge?,
       negotiable: json["negotiable"] as int?,
-      remate: json["remate"] as int?,
+      remate: json["remate"] != null && json["remate"] == 1,
       cars: json["cars"] as int?,
       position:
           json["latitude"] != null && json["longitude"] != null ? Position(double.parse(json["longitude"]), double.parse(json["latitude"])) : null,
@@ -200,7 +209,9 @@ List<Property> listPropertyDummy = [
 
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
-    position: Position(19.2923, -99.6572), // Toluca coordinates
+    position: Position(19.2923, -99.6572),
+    remate: true,
+    propertyAge: PropertyAge.openNewHouse, // Toluca coordinates
   ),
   Property(
     id: "2",
@@ -228,7 +239,8 @@ List<Property> listPropertyDummy = [
     profileId: "12346",
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
-    position: Position(19.4326, -99.1332), // CDMX coordinates
+    position: Position(19.4326, -99.1332),
+    propertyAge: PropertyAge.preSale,
   ),
   Property(
     id: "21",
@@ -283,6 +295,7 @@ List<Property> listPropertyDummy = [
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
     position: Position(20.7036, -100.4376),
+    remate: true,
   ),
   Property(
     id: "23",

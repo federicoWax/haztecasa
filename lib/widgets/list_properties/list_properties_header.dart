@@ -9,16 +9,19 @@ class ListPropertiesHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Center(
-      child: Container(
-        height: 20.h,
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(color: colorScheme.primary, borderRadius: BorderRadius.circular(10.r)),
-        child: Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: Text(
-            "Propiedades disponibles: $totalList",
-            style: TextStyle(color: colorScheme.onPrimary, fontSize: 14.sp, fontWeight: FontWeight.w500),
+    return IgnorePointer(
+      ignoring: true,
+      child: Center(
+        child: Container(
+          height: 20.h,
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          decoration: BoxDecoration(color: colorScheme.primary, borderRadius: BorderRadius.circular(10.r)),
+          child: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: Text(
+              "Propiedades disponibles: $totalList",
+              style: TextStyle(color: colorScheme.onPrimary, fontSize: 14.sp, fontWeight: FontWeight.w500),
+            ),
           ),
         ),
       ),
